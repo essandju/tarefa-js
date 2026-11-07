@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 2</title>
+  <style>
+    body { font-family: sans-serif; max-width: 480px; margin: 40px auto; }
+    input { width: 100%; padding: 10px; font-size: 18px; box-sizing: border-box; }
+    #saida { margin-top: 20px; font-size: 32px; letter-spacing: 4px; }
+    .cinco {
+      display: inline-block;
+      color: crimson;
+      animation: girar 1.5s linear infinite;
+    }
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <input id="entrada" type="text" placeholder="Ex.: 1523459">
+  <div id="saida"></div>
+
+  <script>
+    const entrada = document.getElementById("entrada");
+    const saida = document.getElementById("saida");
+
+    entrada.addEventListener("input", () => {
+      saida.innerHTML = "";
+      for (const c of entrada.value) {
+        if (c === "5") {
+          const span = document.createElement("span");
+          span.className = "cinco";
+          span.textContent = "5";
+          saida.appendChild(span);
+        } else {
+          saida.appendChild(document.createTextNode(c));
+        }
+      }
+    });
+  </script>
+</body>
+</html>
